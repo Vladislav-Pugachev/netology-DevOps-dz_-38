@@ -1,0 +1,38 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint .
+platforms:
+  - name: centos7
+    image: centos:7
+    dockerfile: Dockerfile.j2
+    command: /usr/sbin/init
+    privileged: true
+  - name: ubuntu
+    image: ubuntu:20.04
+    dockerfile: Dockerfile.j2
+    command: /sbin/init
+    privileged: true
+    env:
+      DEBIAN_FRONTEND: "noninteractive" 
+      TZ: "Etc/GMT+4"
+provisioner:
+  name: ansible
+  options:
+    vv: true
+    D: true
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+    - dependency
+    - lint
+    - destroy
+    - create
+    - converge
+    - verify
+    - cleanup
