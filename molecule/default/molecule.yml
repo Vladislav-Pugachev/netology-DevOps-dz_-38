@@ -12,14 +12,6 @@ platforms:
     dockerfile: Dockerfile.j2
     command: /usr/sbin/init
     privileged: true
-  - name: ubuntu
-    image: ubuntu:20.04
-    dockerfile: Dockerfile.j2
-    command: /sbin/init
-    privileged: true
-    env:
-      DEBIAN_FRONTEND: "noninteractive" 
-      TZ: "Etc/GMT+4"
 provisioner:
   name: ansible
   options:
@@ -30,7 +22,6 @@ verifier:
 scenario:
   test_sequence:
     - dependency
-    - lint
     - destroy
     - create
     - converge
