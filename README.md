@@ -1,28 +1,7 @@
-Role Name
-=========
+1. Тестирование роли vector осуществляется с помощью molecule для двух ОС centos7 и ubuntu. 
+ - https://github.com/Vladislav-Pugachev/netology-DevOps-dz_-38/tree/0.2.0
 
-Install Vector
+2. Тестирование окружении для роли vector осущетсвляется с помощью tox для ОС centos7.
+ - https://github.com/Vladislav-Pugachev/netology-DevOps-dz_-38/tree/0.3.0
 
-
-Role Variables
---------------
-
-variables|default|комментарии
----------|------|------------
-vector_version| 0.21.2 | устанавливаемая версия Vector
-
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - vector
-
-License
--------
-
-MIT
 
